@@ -1,4 +1,4 @@
-package com.whitechoke.osuStatJava.entity;
+package com.whitechoke.osuStatJava.db.entity;
 
 import dev.osureader.enums.Mods;
 import jakarta.persistence.Column;
@@ -11,7 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
