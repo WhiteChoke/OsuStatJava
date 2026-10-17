@@ -1,4 +1,4 @@
-package com.whitechoke.osuStatJava.db.entity;
+package com.whitechoke.osuStatJava.Core.db.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

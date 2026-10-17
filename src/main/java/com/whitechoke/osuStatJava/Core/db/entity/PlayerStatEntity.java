@@ -1,4 +1,4 @@
-package com.whitechoke.osuStatJava.db.entity;
+package com.whitechoke.osuStatJava.Core.db.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,14 +33,14 @@ public class PlayerStatEntity {
     @Column(name = "pp_gained", nullable = false)
     private Integer ppGained;
 
-    @Column(name = "avg_bpm", nullable = false)
-    private Double avgBpm;
-
-    @Column(name = "avg_star_rate", nullable = false)
-    private Double avgStarRate;
-
-    @Column(name = "avg_accuracy", nullable = false)
-    private Double avgAccuracy;
+//    @Column(name = "avg_bpm", nullable = false)
+//    private Double avgBpm;
+//
+//    @Column(name = "avg_star_rate", nullable = false)
+//    private Double avgStarRate;
+//
+//    @Column(name = "avg_accuracy", nullable = false)
+//    private Double avgAccuracy;
 
     @Column(name = "session_bpm_sum", nullable = false)
     private Double sessionBpmSum;

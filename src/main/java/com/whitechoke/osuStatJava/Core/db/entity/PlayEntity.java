@@ -1,4 +1,4 @@
-package com.whitechoke.osuStatJava.db.entity;
+package com.whitechoke.osuStatJava.Core.db.entity;
 
 import dev.osureader.enums.Mods;
 import jakarta.persistence.Column;
