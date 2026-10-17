@@ -19,7 +19,8 @@ repositories {
 }
 
 dependencies {
-	implementation 'com.github.WhiteChoke:JavaOsuReader:1.1'
+	implementation 'com.github.oshi:oshi-core:7.7.1'
+	implementation 'com.github.WhiteChoke:JavaOsuReader:1.2'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	implementation 'org.hibernate.orm:hibernate-community-dialects'
