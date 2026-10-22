@@ -38,6 +38,7 @@ public class PlayerStatService {
     }
 
     @PostConstruct
+    @Transactional
     private void CheckData() {
         var todayStat = playerRepository.findByDate(LocalDate.now());
 

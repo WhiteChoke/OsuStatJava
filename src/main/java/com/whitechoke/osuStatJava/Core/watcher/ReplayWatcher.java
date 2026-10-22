@@ -1,5 +1,6 @@
-package com.whitechoke.osuStatJava.watcher;
+package com.whitechoke.osuStatJava.Core.watcher;
 
+import com.whitechoke.osuStatJava.Core.service.ReplayRegisterService;
 import dev.osureader.reader.ReplayReader;
 import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
@@ -25,24 +26,21 @@ import java.util.concurrent.TimeUnit;
 public class ReplayWatcher {
     private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
     private final ReplayReader replayReader;
+    private final ReplayRegisterService replayRegisterService;
     private WatchService watcher;
+    //TODO
     private Path replayFolder = Paths.get("/home/whitechoke/.local/share/osu-wine/osu!/Data/r");
 
     public void start() {
         try {
             watcher = FileSystems.getDefault().newWatchService();
-            replayFolder.register(
+            var key = replayFolder.register(
                     watcher,
                     StandardWatchEventKinds.ENTRY_CREATE
             );
-            var key = watcher.take();
-
             executor.scheduleWithFixedDelay(() -> watch(key), 0, 500, TimeUnit.MILLISECONDS);
         } catch (IOException e) {
             log.error("FAILED TO START REPLAY WATCHER CAUSE: {}", e.getMessage());
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            //TODO
             throw new RuntimeException(e);
         }
     }
@@ -81,8 +79,9 @@ public class ReplayWatcher {
 
             var read = replayReader.read();
 
+            replayRegisterService.replayRegister(read);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error("FAILED TO PROCESS REPLAY", e);
         } finally {
             replayReader.setFilePath(null);
             key.reset();

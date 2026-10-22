@@ -1,5 +1,6 @@
-package com.whitechoke.osuStatJava.watcher;
+package com.whitechoke.osuStatJava.Core.watcher;
 
+import com.whitechoke.osuStatJava.Core.utils.Storage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -12,6 +13,7 @@ import oshi.software.os.OperatingSystem;
 public class ProcessWatcher {
     private final OperatingSystem operatingSystem;
     private final ReplayWatcher replayWatcher;
+    private final Storage storage;
     private boolean isRunning = false;
 
     @Scheduled(fixedDelay = 500)
@@ -24,6 +26,7 @@ public class ProcessWatcher {
             if (isRunning) return;
 
             log.info("FOUND OSU PROCESS: {}", foundProcesses);
+            storage.updateStorage();
             replayWatcher.start();
             isRunning = true;
             return;
