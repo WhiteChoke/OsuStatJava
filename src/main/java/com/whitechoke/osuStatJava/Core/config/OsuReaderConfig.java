@@ -1,4 +1,4 @@
-package com.whitechoke.osuStatJava.config;
+package com.whitechoke.osuStatJava.Core.config;
 
 import dev.osureader.reader.CollectionDbReader;
 import dev.osureader.reader.OsuDbReader;

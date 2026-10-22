@@ -1,4 +1,4 @@
-package com.whitechoke.osuStatJava.config;
+package com.whitechoke.osuStatJava.Core.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
