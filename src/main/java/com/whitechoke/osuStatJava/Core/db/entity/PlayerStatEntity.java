@@ -25,35 +25,46 @@ public class PlayerStatEntity {
     private Long id;
 
     @Column(name = "play_time_min", nullable = false)
-    private Double playTimeMin;
+    private Double playTimeMin = 0.0;
 
     @Column(name = "map_played", nullable = false)
-    private Integer mapPlayed;
+    private Integer mapPlayed = 0;
 
     @Column(name = "pp_gained", nullable = false)
-    private Integer ppGained;
-
-//    @Column(name = "avg_bpm", nullable = false)
-//    private Double avgBpm;
-//
-//    @Column(name = "avg_star_rate", nullable = false)
-//    private Double avgStarRate;
-//
-//    @Column(name = "avg_accuracy", nullable = false)
-//    private Double avgAccuracy;
+    private Double ppGained = 0.0;
 
     @Column(name = "session_bpm_sum", nullable = false)
-    private Double sessionBpmSum;
+    private Integer sessionBpmSum = 0;
 
     @Column(name = "session_star_rate_sum", nullable = false)
-    private Double sessionStarRateSum;
+    private Double sessionStarRateSum = 0.0;
 
     @Column(name = "session_accuracy_sum", nullable = false)
-    private Double sessionAccuracySum;
+    private Double sessionAccuracySum = 0.0;
 
     @Column(name = "day_initial_pp", nullable = false)
-    private Integer dayInitialPp;
+    private Integer dayInitialPp = 0;
 
-    @Column(name = "date", nullable = false)
-    private LocalDate date;
+    @Column(name = "date", nullable = false, unique = true)
+    private LocalDate date = LocalDate.now();
+
+    public void setPpGained(Double ppGained) {
+        this.ppGained += ppGained;
+    }
+
+    public void setSessionBpmSum(Integer sessionBpmSum) {
+        this.sessionBpmSum += sessionBpmSum;
+    }
+
+    public void setSessionStarRateSum(Double sessionStarRateSum) {
+        this.sessionStarRateSum += sessionStarRateSum;
+    }
+
+    public void setSessionAccuracySum(Double sessionAccuracySum) {
+        this.sessionAccuracySum += sessionAccuracySum;
+    }
+
+    public void incrementPlayedMap() {
+        this.mapPlayed++;
+    }
 }
